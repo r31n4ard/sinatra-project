@@ -1,0 +1,23 @@
+header{
+  font-size: 50px;
+}
+
+body{
+  background-color: #DE1F4F;
+}
+
+#login{
+  border-style: double;
+  border-color: white;
+  border-width: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+#signup{
+  border-style: outset;
+  border-color: gold;
+  border-width: 5px;
+  padding: 30px;
+  text-align: center;
+}
