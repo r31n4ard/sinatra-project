@@ -1,4 +1,4 @@
-class Pin < ActiveRecord::Base
+class Pin < ActiveRecord::base
   has_many :comments
 
 end

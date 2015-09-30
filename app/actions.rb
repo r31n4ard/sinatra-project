@@ -2,6 +2,7 @@
 get '/' do
   erb :index
 end
+<<<<<<< HEAD
 
 get '/login' do
   erb :login
@@ -38,3 +39,5 @@ end
  # @alcohols = ['beer', 'wine', 'cocktails', 'vodka', 'scotch']
   #erb :alcohol 
 #end
+=======
+>>>>>>> 55dc3c23c5274baaf4c5a471adde49e51bc01dc0
