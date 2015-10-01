@@ -1,16 +1,29 @@
 # Homepage (Root path)
-get '/' do
+helpers do
+  def current_user
+    @current_user = User.find_by(id: session[user_id]) if session[:user_id]
+  end 
+end 
+
+get '/index' do
   erb :index
 end
-<<<<<<< HEAD
 
 get '/login' do
   erb :login
 end
 
-post 'login' do
-  #todo
-  redirect '/'
+post '/login' do
+  username = params[:username]
+  password = params[:password]
+
+  user = User.find_by(username: username)
+  if user.password = password
+    session[:user_id] = user.id
+    redirect '/index'
+  else
+    redirect '/'
+  end
 end
 
 get '/logout' do
@@ -27,9 +40,18 @@ get '/signup' do
 end
 
 post '/signup' do
-  #todo take the data from the form and put in db
-  #maybe run some validations
-  redirect '/'
+  username = params[:username]
+  password = params[:password]
+
+  user = User.find_by(username: username)
+  if user
+    redirect '/'
+  else
+    user = User.create(username: username, password: password)
+    session[:user_id] = user.id
+    redirect '/index'
+  end
+
 end
 
 get '/profile' do
@@ -39,5 +61,3 @@ end
  # @alcohols = ['beer', 'wine', 'cocktails', 'vodka', 'scotch']
   #erb :alcohol 
 #end
-=======
->>>>>>> 55dc3c23c5274baaf4c5a471adde49e51bc01dc0
